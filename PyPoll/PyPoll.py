@@ -17,14 +17,15 @@ with open(csvpath, encoding="utf8") as csvfile:
 
         csvreader = csv.reader(csvfile, delimiter=',')
 
-        # Skip the file header
+        # Output the column headers
         csvheader = next(csvreader)
+        print(f"CSV Header: {csvheader}")
         
         for row in csvreader:
 
             data.append(row[0])
 
-            #Determine names of canidates
+            # Add names of canidates to different list and count results
             candidates.append(row[2])
 
             if (row[2] == "Charles Casper Stockham"):

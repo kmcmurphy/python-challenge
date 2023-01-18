@@ -18,7 +18,7 @@ with open(csvpath, encoding="utf8") as csvfile:
         csvreader = csv.reader(csvfile, delimiter=',')
 
         csvheader = next(csvreader)
-        #print(f"CSV Header: {csvheader}")
+        print(f"CSV Header: {csvheader}")
 
         for row in csvreader:
             # Add the date
