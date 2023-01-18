@@ -24,13 +24,16 @@ with open(csvpath, encoding="utf8") as csvfile:
             # Add the date
             date.append(row[0])
             
+            #Split the date into months and years
             split_date = row[0].split("-")
             month.append(split_date[0])
             year.append(split_date[1])
 
             profit_loss.append(int(row[1]))
 
-            # Normalize numbers to get a total and then +/- based on monthly rise or fall
+            # Loop through the profit/loss and compare this month vs last month
+            # Determine equation based on whether money was made or lost
+
             current_profit = profit_loss[count]
             last_profit = profit_loss[count - 1]
 
@@ -40,20 +43,22 @@ with open(csvpath, encoding="utf8") as csvfile:
             else: 
                 difference = (last_profit - current_profit) * -1
 
+            # Add the profit difference to its own table
             profit_difference.append(difference)
 
             count = count + 1
 
-        #Set variables for the min/max difference and dates they align with
+        # Find the min/max difference and dates they align with
         max_value = (max(profit_difference))
         max_index = profit_difference.index(max_value)
 
         min_value = min(profit_difference)
         min_index = profit_difference.index(min_value)
 
+        # Determine the average change
         average_change = float(sum(profit_difference)/(len(month)-1))
 
-        #print output
+        # Set output
         output_lines = [
         "Financial Analysis",
         "----------------------------",
