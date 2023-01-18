@@ -65,7 +65,7 @@ with open(csvpath, encoding="utf8") as csvfile:
         ]
 
 # Specify the file to write to
-output_path = os.path.join("Output", "new.txt")
+output_path = os.path.join("Output", "output.txt")
 
 # Open a file using "write" mode and create a variable to hold output
 with open(output_path, 'w') as txtfile:
